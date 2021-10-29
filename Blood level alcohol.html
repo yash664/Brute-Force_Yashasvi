@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title> Blood alcohol level tester</title>
+        <script type="text/javascript">
+
+            function calculate()
+            {
+                var r;
+                var wt=document.getElementById("1").value;
+                var alcoholwt=document.getElementById("2").value*10; //one unit =50 g
+                if(document.getElementById("3").value=="male")
+                r=0.68;
+                else r=0.55;
+                var result=(alcoholwt*10)/(wt*r*1000);
+
+                  document.getElementById("4").value=result;
+                if(result<=0.05)
+                document.getElementById('illegal').innerHTML="Normal.";
+                else
+                document.getElementById('illegal').innerHTML="Illegal.";
+                    }
+                              
+
+        </script>
+    </head>
+    <body bgcolor="cyan">
+        <font face="Freestyle Script" size=50>
+        
+       <center><h1 style="background-color: blue;"  > Blood Alcohol Level Tester</h1>
+   
+    <form name="test"> <p style="background-color: white; color: blue;"> Gender:
+        <input type="radio" name="gender" id="3" value="male" checked> Male 
+        <input type="radio" name="gender"  id="3" value="female"> Female 
+    </p>
+    <p style="background-color: white; color: blue;"> Your weight:
+        <input type="text" name="wt" id="1" value=0.0> 
+    </p>
+    <p style="background-color: white; color: blue;"> Number of units consumed:
+        <input type="number" name="number"id="2" value=0> 
+    </p>
+    <p style="background-color: white; color: blue;"> Time since first unit:
+        <input type="number" name="number"id="3" value=0> hours
+        <input type="number" name="number"id="3" value=0> minutes
+
+    </p>
+    <button type="button" onclick="calculate()"> Display Result</button>
+    <p style="background-color: white; color: blue;"> Result:
+        <input type="number" name="number"id="4" value="result"> 
+
+    </p>
+    </form>
+    <h1 id="illegal"></h1>
+</font> </center>
+</body>
+</html>
